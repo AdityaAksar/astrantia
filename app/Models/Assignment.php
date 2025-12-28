@@ -4,12 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Schedule extends Model
+class Assignment extends Model
 {
     protected $guarded = [];
 
     protected $casts = [
-        'start_time' => 'string',
-        'end_time' => 'string',
-    ];
+        'deadline' => 'datetime',
+    ]; 
 }

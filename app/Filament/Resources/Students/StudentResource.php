@@ -16,6 +16,8 @@ use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
 use BackedEnum;
+use Filament\Schemas\Components\Section;
+use Filament\Forms\Components\TextArea;
 
 class StudentResource extends Resource
 {
@@ -29,22 +31,54 @@ class StudentResource extends Resource
     {
         return $schema
             ->components([
-                TextInput::make('name')
-                    ->required()
-                    ->maxLength(255)
-                    ->label('Nama Mahasiswa'),
-
-                Select::make('role')
-                    ->options([
-                        'Mahasiswa' => 'Mahasiswa',
+                Section::make('Informasi Mahasiswa')
+                    ->schema([
+                        TextInput::make('nim')
+                            ->required()
+                            ->maxLength(50)
+                            ->label('NIM'),
+                        TextInput::make('name')
+                            ->required()
+                            ->maxLength(255)
+                            ->label('Nama Mahasiswa'),
+                        Select::make('role')
+                            ->options([
+                                'Mahasiswa' => 'Mahasiswa',
+                            ])
+                            ->default('Mahasiswa')
+                            ->required(),
+                        TextInput::make('email')
+                            ->email()
+                            ->required()
+                            ->maxLength(255)
+                            ->label('Email'),
+                        FileUpload::make('photo')
+                            ->image()
+                            ->directory('students')
+                            ->label('Foto Profil'),
                     ])
-                    ->default('Mahasiswa')
-                    ->required(),
+                    ->columns(2),
 
-                FileUpload::make('photo')
-                    ->image()
-                    ->directory('students')
-                    ->label('Foto Profil'),
+                Section::make('Detail Tambahan')
+                    ->schema([
+                        TextInput::make('quote')
+                            ->maxLength(500)
+                            ->label('Kutipan')
+                            ->columnSpanFull(),
+                        TextArea::make('bio')
+                            ->label('Deskripsi Diri')
+                            ->columnSpanFull(),
+                        TextInput::make('instagram')
+                            ->maxLength(255)
+                            ->label('Instagram'),
+                        TextInput::make('linkedin')
+                            ->maxLength(255)
+                            ->label('LinkedIn'),
+                        TextInput::make('github')
+                            ->maxLength(255)
+                            ->label('GitHub'),
+                    ])
+                    ->columns(3),
             ]);
     }
 

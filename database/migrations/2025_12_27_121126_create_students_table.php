@@ -13,9 +13,18 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
         $table->id();
+        $table->string('nim')->unique(); 
         $table->string('name');
+        $table->string('email')->unique();
         $table->string('role')->default('Mahasiswa');
-        $table->string('photo')->nullable(); // Foto profil
+        $table->string('bio')->nullable();
+        $table->string('quote')->nullable();
+        $table->string('photo')->nullable();
+
+        $table->string('instagram')->nullable();
+        $table->string('linkedin')->nullable();
+        $table->string('github')->nullable();
+        
         $table->timestamps();
         });
     }

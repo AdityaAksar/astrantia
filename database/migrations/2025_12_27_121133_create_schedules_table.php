@@ -16,6 +16,8 @@ return new class extends Migration
         $table->string('day');
         $table->string('subject');
         $table->string('class');
+        $table->string('room');
+        $table->json('lecturers');
         $table->time('start_time');
         $table->time('end_time');
         $table->timestamps();

@@ -49,6 +49,20 @@ class ScheduleResource extends Resource
                     ->required()
                     ->maxLength(255)
                     ->label('Kelas'),
+                
+                TextInput::make('room')
+                    ->required()
+                    ->maxLength(50)
+                    ->label('Ruang')
+                    ->placeholder('Contoh: SG07, TI02, dsb.'),
+
+                TextInput::make('lecturers')
+                    ->required()
+                    ->maxLength(255)
+                    ->placeholder('Ketik nama dosen, pisahkan dengan / jika lebih dari satu')
+                    ->columnSpanFull()
+                    ->separator('/')
+                    ->label('Dosen Pengampu'),
 
                 TimePicker::make('start_time')
                     ->required()

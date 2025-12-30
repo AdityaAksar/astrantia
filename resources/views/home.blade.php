@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Astrantia</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+@extends('layouts.app')
 
+@section('content')
     <style>
         @keyframes marqueeScroll {
             0% { transform: translateX(0%); }
@@ -22,52 +16,6 @@
             animation-play-state: paused;
         }
     </style>
-</head>
-<body class="font-Outfit leading-8 bg-white dark:bg-gray-900 text-gray-900 dark:text-white relative">
-    {{-- BACKGROUND IMAGE --}}
-    <div class="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] opacity-50 dark:opacity-20">
-        <img src="{{ asset('images/header-bg-color.png') }}" alt="" class="w-full" />
-    </div>
-
-    {{-- NAVBAR CONTAINER --}}
-    <div class="fixed top-0 left-0 right-0 z-50 flex justify-center py-4 px-4">
-        <header class="relative flex items-center justify-between px-6 py-3 md:py-4 shadow-sm max-w-5xl rounded-full mx-auto w-full bg-white/70 dark:bg-gray-800/70 backdrop-blur-md border border-white/40 dark:border-gray-700">
-            <a href="/" class="flex items-center gap-2">
-                <img src="{{ asset('images/Astrantia Logo.jpg') }}" class="h-10 w-10 rounded-full" alt="Astrantia Logo">
-                <span class="font-bold text-lg text-gray-800 dark:text-white">Astrantia</span>
-            </a>
-            <nav class="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-8 text-gray-900 dark:text-gray-200 text-sm font-medium">
-                <a class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" href="#">Beranda</a>
-                <a class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" href="#anggota">Anggota</a>
-                <a class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" href="#jadwal">Jadwal</a>
-                <a class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" href="#">Materi</a>
-                <a class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" href="#tugas">Tugas</a>
-                <a class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" href="#">Galeri</a>
-            </nav>
-            <div class="flex items-center md:hidden">
-                <button id="openMenu" class="text-gray-600 dark:text-white focus:outline-none">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
-            </div>
-        </header>
-    </div>
-
-    {{-- MOBILE MENU --}}
-    <div id="mobileMenu" class="fixed inset-0 z-[60] bg-white/50 dark:bg-gray-900 w-full h-screen transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col items-center justify-center gap-8 backdrop-blur-md">
-        <button id="closeMenuBtn" class="absolute top-8 right-8 text-gray-600 dark:text-white p-2">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
-        <a class="text-2xl font-medium text-gray-800 dark:text-white hover:text-indigo-600" href="#">Beranda</a>
-        <a class="text-2xl font-medium text-gray-800 dark:text-white hover:text-indigo-600" href="#anggota">Anggota</a>
-        <a class="text-2xl font-medium text-gray-800 dark:text-white hover:text-indigo-600" href="#jadwal">Jadwal</a>
-        <a class="text-2xl font-medium text-gray-800 dark:text-white hover:text-indigo-600" href="#">Materi</a>
-        <a class="text-2xl font-medium text-gray-800 dark:text-white hover:text-indigo-600" href="#tugas">Tugas</a>
-        <a class="text-2xl font-medium text-gray-800 dark:text-white hover:text-indigo-600" href="#">Galeri</a>
-    </div>
 
     {{-- CONTENT --}}
     <main>
@@ -107,7 +55,7 @@
                 Menu utama untuk mengakses informasi kelas Astrantia
             </p>
             <div class="flex flex-col sm:flex-row items-center gap-4 mt-4">
-                <a href="#anggota" class="px-10 py-2.5 border rounded-full bg-[#2a1b45] text-white flex items-center gap-2 dark:border-transparent">
+                <a href="{{ route('member') }}" class="px-10 py-2.5 border rounded-full bg-[#2a1b45] text-white flex items-center gap-2 dark:border-transparent">
                     Anggota <img src="{{ asset('images/right-arrow-white.png') }}" alt="" class="w-4">
                 </a>
                 <a href="#jadwal" class="px-10 py-2.5 border rounded-full bg-[#2a1b45] text-white flex items-center gap-2 dark:border-transparent">
@@ -217,13 +165,9 @@
                                         <div class="space-y-3">
                                             @foreach($schedule->lecturers as $lecturer)
                                                 <div class="flex items-center gap-3">
-                                                    {{-- AVATAR INISIAL --}}
                                                     <div class="w-9 h-9 shrink-0 rounded-full bg-indigo-100 dark:bg-gray-700 border border-indigo-200 dark:border-gray-600 flex items-center justify-center text-xs font-bold text-indigo-700 dark:text-indigo-300 shadow-sm">
-                                                        {{-- Ambil 2 huruf pertama, ubah ke kapital --}}
                                                         {{ strtoupper(substr($lecturer, 0, 2)) }}
                                                     </div>
-                                                    
-                                                    {{-- NAMA DOSEN --}}
                                                     <span class="text-sm text-gray-700 dark:text-gray-300 font-medium leading-tight">
                                                         {{ $lecturer }}
                                                     </span>
@@ -280,7 +224,6 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
                                                 <path fill-rule="evenodd" d="M12.963 2.286a.75.75 0 0 0-1.071-.136 9.742 9.742 0 0 0-3.539 6.176 7.547 7.547 0 0 1-1.705-1.715.75.75 0 0 0-1.152.082A9 9 0 1 0 15.68 4.534a7.46 7.46 0 0 1-2.717-2.248ZM15.75 14.25a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" clip-rule="evenodd" />
                                             </svg>
-                                            {{-- Span ini akan diisi oleh Javascript --}}
                                             Sisa Waktu: 
                                             <span class="task-countdown font-bold" 
                                                 data-deadline="{{ \Carbon\Carbon::parse($task->deadline)->toIso8601String() }}">
@@ -327,46 +270,7 @@
         </div>
     </main>
 
-    {{-- Footer Section --}}
-    <footer class="w-full bg-gradient-to-b from-[#F1EAFF] to-[#FFFFFF] text-gray-800 mt-0">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex flex-col items-center">
-            <div class="flex items-center space-x-3 mb-6">
-                <img alt="" class="h-11 rounded-full"
-                    src="{{ asset('images/Astrantia Logo.jpg') }}"/>
-                    Astrantia
-            </div>
-            <p class="text-center max-w-xl text-sm font-normal leading-relaxed">
-                wherever we stand; we are one; since we were born.
-            </p>
-        </div>
-        <div class="border-t border-slate-200">
-            <div class="max-w-7xl mx-auto px-6 py-6 text-center text-sm font-normal">
-                Astrantia ©2025. All rights reserved.
-            </div>
-        </div>
-    </footer>
-
     <script>
-        const openMenuBtn = document.getElementById('openMenu');
-        const closeMenuBtn = document.getElementById('closeMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        
-        openMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('translate-x-full');
-            mobileMenu.classList.remove('translate-x-full');
-        });
-
-        closeMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('translate-x-full');
-        });
-        
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('translate-x-full');
-            });
-        });
-        
         const dbStudents = @json($students);
 
         const cardsData = dbStudents.map(student => ({

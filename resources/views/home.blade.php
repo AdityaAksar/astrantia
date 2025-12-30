@@ -58,7 +58,7 @@
                 <a href="{{ route('member') }}" class="px-10 py-2.5 border rounded-full bg-[#2a1b45] text-white flex items-center gap-2 dark:border-transparent">
                     Anggota <img src="{{ asset('images/right-arrow-white.png') }}" alt="" class="w-4">
                 </a>
-                <a href="#jadwal" class="px-10 py-2.5 border rounded-full bg-[#2a1b45] text-white flex items-center gap-2 dark:border-transparent">
+                <a href="{{ route('schedules') }}" class="px-10 py-2.5 border rounded-full bg-[#2a1b45] text-white flex items-center gap-2 dark:border-transparent">
                     Jadwal <img src="{{ asset('images/right-arrow-white.png') }}" alt="" class="w-4">
                 </a>
                 <a href="#" class="px-10 py-2.5 border rounded-full bg-[#2a1b45] text-white flex items-center gap-2 dark:border-transparent">

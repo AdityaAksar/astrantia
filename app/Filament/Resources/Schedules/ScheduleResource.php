@@ -46,9 +46,15 @@ class ScheduleResource extends Resource
                     ->maxLength(255)
                     ->label('Mata Kuliah'),
 
-                TextInput::make('class')
+                Select::make('class')
                     ->required()
-                    ->maxLength(255)
+                    ->options([
+                        'A' => 'A',
+                        'B' => 'B',
+                        'C' => 'C',
+                        'D' => 'D',
+                        'E' => 'E',
+                    ])
                     ->label('Kelas'),
                 
                 TextInput::make('room')

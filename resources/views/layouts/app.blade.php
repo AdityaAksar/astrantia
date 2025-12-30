@@ -23,7 +23,7 @@
             <nav class="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-8 text-gray-900 dark:text-gray-200 text-sm font-medium">
                 <a class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" href="{{ route('home') }}">Beranda</a>
                 <a class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" href="{{ route('member') }}">Anggota</a>
-                <a class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" href="#jadwal">Jadwal</a>
+                <a class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" href="{{ route('schedules') }}">Jadwal</a>
                 <a class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" href="#">Materi</a>
                 <a class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" href="#tugas">Tugas</a>
                 <a class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" href="#">Galeri</a>
@@ -47,11 +47,13 @@
         </button>
         <a class="text-2xl font-medium text-gray-800 dark:text-white hover:text-indigo-600" href="{{ route('home') }}">Beranda</a>
         <a class="text-2xl font-medium text-gray-800 dark:text-white hover:text-indigo-600" href="{{ route('member') }}">Anggota</a>
-        <a class="text-2xl font-medium text-gray-800 dark:text-white hover:text-indigo-600" href="#jadwal">Jadwal</a>
+        <a class="text-2xl font-medium text-gray-800 dark:text-white hover:text-indigo-600" href="{{ route('schedules') }}">Jadwal</a>
         <a class="text-2xl font-medium text-gray-800 dark:text-white hover:text-indigo-600" href="#">Materi</a>
         <a class="text-2xl font-medium text-gray-800 dark:text-white hover:text-indigo-600" href="#tugas">Tugas</a>
         <a class="text-2xl font-medium text-gray-800 dark:text-white hover:text-indigo-600" href="#">Galeri</a>
     </div>
+
+    @yield('content')
 
     {{-- Footer Section --}}
     <footer class="w-full bg-gradient-to-b from-[#F1EAFF] to-[#FFFFFF] text-gray-800 mt-0">

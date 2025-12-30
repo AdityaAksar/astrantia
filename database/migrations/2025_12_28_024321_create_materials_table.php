@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('subject');
-            $table->string('file_path');
+            $table->json('file_path');
             $table->timestamps();
         });
     }

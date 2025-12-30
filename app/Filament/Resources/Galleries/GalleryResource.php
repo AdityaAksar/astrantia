@@ -45,6 +45,8 @@ class GalleryResource extends Resource
                     ->visibility('public')
                     ->image()
                     ->imageEditor()
+                    ->openable()
+                    ->downloadable()
                     ->columnSpanFull(),
                 Forms\Components\Textarea::make('description')
                     ->label('Deskripsi')

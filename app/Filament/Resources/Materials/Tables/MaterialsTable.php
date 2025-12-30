@@ -2,7 +2,6 @@
 
 namespace App\Filament\Resources\Materials\Tables;
 
-use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
@@ -24,6 +23,11 @@ class MaterialsTable
                     ->label('Mata Kuliah')
                     ->sortable()
                     ->searchable(),
+                Tables\Columns\TextColumn::make('file_path')
+                    ->label('File')
+                    ->badge()
+                    ->color('info')
+                    ->formatStateUsing(fn ($state) => (is_array($state) ? count($state) : 1) . ' File'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Tanggal Diupload')
                     ->dateTime('d M Y H:i')
@@ -35,10 +39,6 @@ class MaterialsTable
             ->recordActions([
                 EditAction::make(),
                 DeleteAction::make(),
-                Action::make('download')
-                    ->label('Unduh')
-                    ->url(fn ($record) => asset('storage/' . $record->file_path))
-                    ->openUrlInNewTab(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

@@ -18,6 +18,7 @@ class GalleriesTable
             ->columns([
                 ImageColumn::make('images')
                     ->label('Foto')
+                    ->disk('public')
                     ->circular()
                     ->stacked()
                     ->limit(3),

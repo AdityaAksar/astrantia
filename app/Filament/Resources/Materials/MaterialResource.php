@@ -39,10 +39,13 @@ class MaterialResource extends Resource
                     ->label('Mata Kuliah'),
                 Forms\Components\FileUpload::make('file_path')
                     ->required()
+                    ->multiple()
                     ->label('File Materi')
                     ->disk('public')
                     ->directory('materials')
                     ->visibility('public')
+                    ->downloadable()
+                    ->openable()
                     ->columnSpanFull(),
             ]);
     }

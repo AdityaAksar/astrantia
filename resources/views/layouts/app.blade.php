@@ -24,7 +24,7 @@
                 <a class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" href="{{ route('home') }}">Beranda</a>
                 <a class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" href="{{ route('member') }}">Anggota</a>
                 <a class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" href="{{ route('schedules') }}">Jadwal</a>
-                <a class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" href="#">Materi</a>
+                <a class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" href="{{ route('materials') }}">Materi</a>
                 <a class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" href="#tugas">Tugas</a>
                 <a class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" href="#">Galeri</a>
             </nav>
@@ -48,7 +48,7 @@
         <a class="text-2xl font-medium text-gray-800 dark:text-white hover:text-indigo-600" href="{{ route('home') }}">Beranda</a>
         <a class="text-2xl font-medium text-gray-800 dark:text-white hover:text-indigo-600" href="{{ route('member') }}">Anggota</a>
         <a class="text-2xl font-medium text-gray-800 dark:text-white hover:text-indigo-600" href="{{ route('schedules') }}">Jadwal</a>
-        <a class="text-2xl font-medium text-gray-800 dark:text-white hover:text-indigo-600" href="#">Materi</a>
+        <a class="text-2xl font-medium text-gray-800 dark:text-white hover:text-indigo-600" href="{{ route('materials') }}">Materi</a>
         <a class="text-2xl font-medium text-gray-800 dark:text-white hover:text-indigo-600" href="#tugas">Tugas</a>
         <a class="text-2xl font-medium text-gray-800 dark:text-white hover:text-indigo-600" href="#">Galeri</a>
     </div>

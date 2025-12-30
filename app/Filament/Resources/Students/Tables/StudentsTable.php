@@ -18,6 +18,7 @@ class StudentsTable
             ->columns([
                     ImageColumn::make('photo')
                         ->label('Foto Profil')
+                        ->disk('public')
                         ->circular()
                         ->height(50)
                         ->width(50),

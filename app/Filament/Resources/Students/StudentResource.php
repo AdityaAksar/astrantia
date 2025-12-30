@@ -53,7 +53,9 @@ class StudentResource extends Resource
                             ->maxLength(255)
                             ->label('Email'),
                         FileUpload::make('photo')
+                            ->disk('public')
                             ->image()
+                            ->visibility('public'   )
                             ->directory('students')
                             ->label('Foto Profil'),
                     ])

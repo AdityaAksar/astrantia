@@ -16,6 +16,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TimePicker;
+use Filament\Forms\Components\TagsInput;
 
 class ScheduleResource extends Resource
 {
@@ -56,12 +57,11 @@ class ScheduleResource extends Resource
                     ->label('Ruang')
                     ->placeholder('Contoh: SG07, TI02, dsb.'),
 
-                TextInput::make('lecturers')
+                TagsInput::make('lecturers')
                     ->required()
-                    ->maxLength(255)
-                    ->placeholder('Ketik nama dosen, pisahkan dengan / jika lebih dari satu')
+                    ->placeholder('Ketik nama dosen, lalu tekan Enter')
                     ->columnSpanFull()
-                    ->separator('/')
+                    ->splitKeys(['Tab', 'Enter'])
                     ->label('Dosen Pengampu'),
 
                 TimePicker::make('start_time')

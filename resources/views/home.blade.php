@@ -67,7 +67,7 @@
                 <a href="{{ route('assignments') }}" class="px-10 py-2.5 border rounded-full bg-[#2a1b45] text-white flex items-center gap-2 dark:border-transparent">
                     Tugas <img src="{{ asset('images/right-arrow-white.png') }}" alt="" class="w-4">
                 </a>
-                <a href="#" class="px-10 py-2.5 border rounded-full bg-[#2a1b45] text-white flex items-center gap-2 dark:border-transparent">
+                <a href="{{ route('galleries') }}" class="px-10 py-2.5 border rounded-full bg-[#2a1b45] text-white flex items-center gap-2 dark:border-transparent">
                     Galeri <img src="{{ asset('images/right-arrow-white.png') }}" alt="" class="w-4">
                 </a>
             </div>
@@ -301,7 +301,7 @@
             {{-- GALERI SECTION --}}
             <section id="galeri" class="w-full pt-20 pb-20">
                 <h2 class="text-center text-4xl font-Ovo font-bold text-gray-800 dark:text-white mb-12">GALERI</h2>
-                <div class="overflow-hidden w-full relative max-w-6xl mx-auto marquee-paused">
+                <div class="overflow-hidden w-full relative max-w-full mx-auto marquee-paused">
                     <div class="absolute left-0 top-0 h-full w-20 z-10 pointer-events-none bg-gradient-to-r from-white dark:from-gray-900 to-transparent"></div>
                     <div id="gallery-track" class="marquee-inner flex w-fit" style="animation: marqueeScroll 30s linear infinite;">
                     </div>
@@ -315,14 +315,12 @@
         function toggleTask(id) {
             const content = document.getElementById(`content-${id}`);
             const icon = document.getElementById(`icon-${id}`);
-            
-            // Toggle Hidden Class
             if (content.classList.contains('hidden')) {
                 content.classList.remove('hidden');
-                icon.classList.add('rotate-180'); // Putar ikon ke atas
+                icon.classList.add('rotate-180'); 
             } else {
                 content.classList.add('hidden');
-                icon.classList.remove('rotate-180'); // Kembalikan ikon
+                icon.classList.remove('rotate-180');
             }
         }
         

@@ -13,3 +13,6 @@ Route::get('/materi', [MaterialController::class, 'index'])->name('materials');
 Route::get('/tugas', function () {
     return view('assignment');
 })->name('assignments');
+Route::get('/galeri', function () {
+    return view('gallery');
+})->name('galleries');

@@ -26,7 +26,7 @@
                 <a class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" href="{{ route('schedules') }}">Jadwal</a>
                 <a class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" href="{{ route('materials') }}">Materi</a>
                 <a class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" href="{{ route('assignments') }}">Tugas</a>
-                <a class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" href="#">Galeri</a>
+                <a class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" href="{{ route('galleries') }}">Galeri</a>
             </nav>
             <div class="flex items-center md:hidden">
                 <button id="openMenu" class="text-gray-600 dark:text-white focus:outline-none">
@@ -50,7 +50,7 @@
         <a class="text-2xl font-medium text-gray-800 dark:text-white hover:text-indigo-600" href="{{ route('schedules') }}">Jadwal</a>
         <a class="text-2xl font-medium text-gray-800 dark:text-white hover:text-indigo-600" href="{{ route('materials') }}">Materi</a>
         <a class="text-2xl font-medium text-gray-800 dark:text-white hover:text-indigo-600" href="{{ route('assignments') }}">Tugas</a>
-        <a class="text-2xl font-medium text-gray-800 dark:text-white hover:text-indigo-600" href="#">Galeri</a>
+        <a class="text-2xl font-medium text-gray-800 dark:text-white hover:text-indigo-600" href="{{ route('galleries') }}">Galeri</a>
     </div>
 
     @yield('content')

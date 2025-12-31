@@ -6,18 +6,20 @@
         <div class="flex flex-col items-center text-center pb-10">
             <h2 class="text-center text-4xl font-Ovo font-bold text-gray-800 mb-4">ANGGOTA KELAS</h2>
             <p class="text-center text-gray-500 mb-12">Keluarga besar Astrantia</p>
-            <div class="flex flex-wrap gap-6 items-center justify-center">
+            <div class="flex flex-wrap gap-6 items-stretch justify-center">
                 @foreach ($students as $student)
-                    <div class="group flex flex-col items-center py-8 text-sm bg-white border border-gray-300/60 w-64 rounded-md cursor-pointer hover:border-blue-600 hover:bg-blue-600 transition shadow-sm">
-                        <img class="w-24 h-24 object-cover rounded-full border-2 border-gray-100" 
+                    <div class="group flex flex-col items-center py-8 text-sm bg-white border border-gray-300/60 w-64 rounded-md cursor-pointer hover:border-blue-600 hover:bg-blue-600 transition shadow-sm h-full">
+                        <img class="w-24 h-24 object-cover rounded-full border-2 border-gray-100 shrink-0" 
                             src="{{ $student->photo ? asset('storage/' . $student->photo) : 'https://ui-avatars.com/api/?name=' . urlencode($student->name) }}" 
                             alt="{{ $student->name }}">
                         <h2 class="text-gray-700 group-hover:text-white text-lg font-bold mt-4">{{ $student->name }}</h2>
                         <p class="text-gray-500 group-hover:text-white/80 font-mono text-xs">{{ $student->nim }}</p>
-                        <p class="text-center text-gray-500/60 group-hover:text-white/60 w-3/4 mt-4 italic line-clamp-3">
-                            "{{ $student->quote ?? 'Tidak ada kutipan.' }}"
-                        </p>
-                        <div class="flex items-center space-x-4 mt-6 text-gray-500 group-hover:text-white">
+                        <div class="w-3/4 mt-4 h-[4.5rem] flex items-center justify-center">
+                            <p class="text-center text-gray-500/60 group-hover:text-white/60 italic line-clamp-3 leading-relaxed">
+                                "{{ $student->quote ?? 'Tidak ada kutipan.' }}"
+                            </p>
+                        </div>
+                        <div class="flex items-center space-x-4 mt-auto pt-6 text-gray-500 group-hover:text-white">
                             @if($student->instagram)
                                 <a href="{{ $student->instagram }}" target="_blank" class="hover:scale-110 transition" title="Instagram">
                                     <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -45,3 +47,4 @@
             </div>
         </div>
     </main>
+@endsection

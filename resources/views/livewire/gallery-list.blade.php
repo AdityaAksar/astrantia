@@ -1,14 +1,14 @@
 <div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
-            <h2 class="text-4xl font-Ovo font-bold text-gray-800 dark:text-white mb-4">GALERI KEGIATAN</h2>
-            <p class="text-gray-500 dark:text-gray-400">Dokumentasi momen kebersamaan kelas Astrantia</p>
+            <h2 class="text-4xl font-Ovo font-bold text-gray-800 mb-4">GALERI KEGIATAN</h2>
+            <p class="text-gray-500">Dokumentasi momen kebersamaan kelas Astrantia</p>
         </div>
         <div class="w-full md:w-96 relative mx-auto mb-16">
             <input wire:model.live.debounce.300ms="search" 
                 type="text" 
                 placeholder="Cari dokumentasi..." 
-                class="w-full bg-white/60 backdrop-blur-xl pl-12 pr-4 py-3 rounded-full border border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent shadow-sm transition">
+                class="w-full bg-white/60 backdrop-blur-xl pl-12 pr-4 py-3 rounded-full border border-gray-200 focus:ring-2 focus:ring-indigo-500 focus:border-transparent shadow-sm transition">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
             </svg>
@@ -26,14 +26,14 @@
                     $coverImage = (is_array($images) && count($images) > 0) ? $images[0] : null;
                     $count = is_array($images) ? count($images) : 0;
                 @endphp
-                <div class="group relative overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 bg-gray-100 dark:bg-gray-800 aspect-[4/3] cursor-pointer"
+                <div class="group relative overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 bg-gray-100 aspect-[4/3] cursor-pointer"
                     onclick="openGalleryModal(@js($images), '{{ $gallery->title }}', '{{ $gallery->description }}')">
                     @if($coverImage)
                         <img src="{{ asset('storage/' . $coverImage) }}" 
                             alt="{{ $gallery->title }}" 
                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     @else
-                        <div class="w-full h-full flex items-center justify-center bg-gray-200 dark:bg-gray-700 text-gray-400">
+                        <div class="w-full h-full flex items-center justify-center bg-gray-200 text-gray-400">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
                             </svg>
@@ -63,13 +63,13 @@
                 </div>
             @empty
                 <div class="col-span-full text-center py-20">
-                    <div class="inline-block p-4 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-400 mb-4">
+                    <div class="inline-block p-4 rounded-full bg-gray-100 text-gray-400 mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
                         </svg>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-800 dark:text-white">Belum ada foto</h3>
-                    <p class="text-gray-500 dark:text-gray-400">Dokumentasi akan segera ditambahkan.</p>
+                    <h3 class="text-lg font-bold text-gray-800">Belum ada foto</h3>
+                    <p class="text-gray-500">Dokumentasi akan segera ditambahkan.</p>
                 </div>
             @endforelse
         </div>

@@ -4,8 +4,8 @@
     {{-- CONTENT --}}
     <main class="pt-40">
         <div class="flex flex-col items-center text-center pb-10">
-            <h2 class="text-center text-4xl font-Ovo font-bold text-gray-800 dark:text-white mb-4">ANGGOTA KELAS</h2>
-            <p class="text-center text-gray-500 dark:text-gray-400 mb-12">Keluarga besar Astrantia</p>
+            <h2 class="text-center text-4xl font-Ovo font-bold text-gray-800 mb-4">ANGGOTA KELAS</h2>
+            <p class="text-center text-gray-500 mb-12">Keluarga besar Astrantia</p>
             <div class="flex flex-wrap gap-6 items-center justify-center">
                 @foreach ($students as $student)
                     <div class="group flex flex-col items-center py-8 text-sm bg-white border border-gray-300/60 w-64 rounded-md cursor-pointer hover:border-blue-600 hover:bg-blue-600 transition shadow-sm">

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('course');
             $table->text('description')->nullable();
             $table->dateTime('deadline');
+            $table->json('file_path');
             $table->string('status')->default('pending');
             $table->timestamps();
         });

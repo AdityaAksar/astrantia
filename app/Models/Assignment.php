@@ -10,5 +10,6 @@ class Assignment extends Model
 
     protected $casts = [
         'deadline' => 'datetime',
+        'file_path' => 'array',
     ]; 
 }

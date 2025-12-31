@@ -188,7 +188,7 @@
                     <h4 class="text-2xl font-Ovo font-semibold text-gray-800 dark:text-white text-center mb-10">
                         Tugas & Deadline
                     </h4>
-                    <div class="flex flex-col items-center gap-6 w-full max-w-4xl mx-auto">
+                    <div class="flex flex-col items-center gap-4 w-full max-w-4xl mx-auto">
                         @if($assignments->isEmpty())
                             <div class="flex flex-col items-center justify-center text-center py-16 animate-fade-in w-full">
                                 <div class="bg-green-50 dark:bg-gray-800 p-6 rounded-full mb-6 ring-1 ring-green-100 dark:ring-gray-700">
@@ -203,36 +203,74 @@
                             </div>
                         @else
                             @foreach($assignments as $task)
-                                <div class="w-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm hover:shadow-md transition duration-300">
-                                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between w-full mb-4 gap-4">
-                                        <div>
-                                            <h3 class="text-xl font-bold text-gray-800 dark:text-white">{{ $task->title }}</h3>
-                                            <div class="text-indigo-600 dark:text-indigo-400 font-medium">{{ $task->course }}</div>
+                                <div class="w-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-md transition duration-300 overflow-hidden">
+                                    <button onclick="toggleTask({{ $task->id }})" class="w-full text-left p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 focus:outline-none group">
+                                        <div class="flex-1 w-full">
+                                            <div class="flex flex-wrap items-center gap-3 mb-1">
+                                                <h3 class="text-lg font-bold text-gray-800 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                                                    {{ $task->title }}
+                                                </h3>
+                                                @if(\Carbon\Carbon::parse($task->deadline)->isPast())
+                                                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-red-100 text-red-800 border border-red-200">BERAKHIR</span>
+                                                @else
+                                                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">AKTIF</span>
+                                                @endif
+                                            </div>
+                                            <div class="text-indigo-600 dark:text-indigo-400 font-medium text-sm mb-3">
+                                                {{ $task->course }}
+                                            </div>
+                                            <div class="flex items-center gap-2 text-xs font-medium text-red-500 bg-red-50 dark:bg-red-900/20 w-fit px-3 py-1.5 rounded-lg border border-red-100 dark:border-red-800/30">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 animate-pulse">
+                                                    <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 6a.75.75 0 0 0-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 0 0 0-1.5h-3.75V6Z" clip-rule="evenodd" />
+                                                </svg>
+                                                <span class="text-gray-500 dark:text-gray-400">Sisa Waktu:</span>
+                                                <span class="task-countdown font-bold tracking-wide" 
+                                                    data-deadline="{{ \Carbon\Carbon::parse($task->deadline)->toIso8601String() }}">
+                                                    Menghitung...
+                                                </span>
+                                            </div>
                                         </div>
-                                        <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                            </svg>
-                                            {{ \Carbon\Carbon::parse($task->deadline)->translatedFormat('d F Y, H:i') }}
+                                        <div class="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end mt-2 md:mt-0 pl-0 md:pl-4 md:border-l border-gray-100 dark:border-gray-700">
+                                            <div class="text-left md:text-right">
+                                                <p class="text-[10px] text-gray-400 uppercase font-semibold tracking-wider mb-0.5">Tenggat</p>
+                                                <div class="flex items-center gap-1.5 text-xs text-gray-600 dark:text-gray-300 font-medium whitespace-nowrap">
+                                                    {{ \Carbon\Carbon::parse($task->deadline)->translatedFormat('d F, H:i') }} WIB
+                                                </div>
+                                            </div>
+                                            <div class="bg-gray-50 dark:bg-gray-700 p-2 rounded-full group-hover:bg-indigo-50 dark:group-hover:bg-indigo-900/50 transition-colors">
+                                                <svg id="icon-{{ $task->id }}" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 text-gray-400 group-hover:text-indigo-500 transition-transform duration-300">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                                                </svg>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="text-gray-600 dark:text-gray-300 mb-6 prose dark:prose-invert">
-                                        {!! nl2br(e($task->description)) !!}
-                                    </div>
-                                    <div class="border-t border-gray-100 dark:border-gray-700 pt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                                        <div class="text-sm font-medium text-red-500 flex items-center gap-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                                                <path fill-rule="evenodd" d="M12.963 2.286a.75.75 0 0 0-1.071-.136 9.742 9.742 0 0 0-3.539 6.176 7.547 7.547 0 0 1-1.705-1.715.75.75 0 0 0-1.152.082A9 9 0 1 0 15.68 4.534a7.46 7.46 0 0 1-2.717-2.248ZM15.75 14.25a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" clip-rule="evenodd" />
-                                            </svg>
-                                            Sisa Waktu: 
-                                            <span class="task-countdown font-bold" 
-                                                data-deadline="{{ \Carbon\Carbon::parse($task->deadline)->toIso8601String() }}">
-                                                Menghitung...
-                                            </span>
+                                    </button>
+                                    <div id="content-{{ $task->id }}" class="hidden px-6 pb-6 border-t border-gray-100 dark:border-gray-700 bg-gray-50/30 dark:bg-gray-800/30">
+                                        <div class="mt-4 text-gray-600 dark:text-gray-300 text-sm prose dark:prose-invert max-w-none">
+                                            <p class="text-xs text-gray-400 font-bold uppercase mb-2">Deskripsi / Instruksi:</p>
+                                            {!! nl2br(e($task->description)) !!}
                                         </div>
-                                        <span class="px-4 py-1.5 rounded-full text-sm font-semibold bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 border border-yellow-200 dark:border-yellow-700">
-                                            {{ ucfirst($task->status) }}
-                                        </span>
+                                        @if((!empty($task->file_path) && is_array($task->file_path)) || $task->submission_link)
+                                            <div class="flex flex-col sm:flex-row gap-3 mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
+                                                @if(!empty($task->file_path) && is_array($task->file_path))
+                                                    @foreach($task->file_path as $path)
+                                                        <a href="{{ asset('storage/' . $path) }}" download target="_blank" class="flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-bold text-indigo-700 bg-white border border-indigo-200 hover:bg-indigo-50 rounded-xl transition shadow-sm dark:bg-gray-800 dark:text-indigo-400 dark:border-gray-600 dark:hover:bg-gray-700">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                                                                <path fill-rule="evenodd" d="M5.625 1.5H9a3.75 3.75 0 013.75 3.75v1.875c0 1.036.84 1.875 1.875 1.875H16.5a3.75 3.75 0 013.75 3.75v7.875c0 1.035-.84 1.875-1.875 1.875H5.625a1.875 1.875 0 01-1.875-1.875V3.375c0-1.036.84-1.875 1.875-1.875zM12.75 12a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V18a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V12z" clip-rule="evenodd" />
+                                                            </svg>
+                                                            Unduh Lampiran {{ $loop->count > 1 ? $loop->iteration : '' }}
+                                                        </a>
+                                                    @endforeach
+                                                @endif
+                                                @if($task->submission_link)
+                                                    <a href="{{ $task->submission_link }}" target="_blank" class="flex items-center justify-center gap-2 px-6 py-2.5 text-xs font-bold text-white bg-indigo-600 hover:bg-indigo-700 rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                                                        </svg>
+                                                        Kumpul Tugas
+                                                    </a>
+                                                @endif
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                             @endforeach
@@ -258,7 +296,7 @@
                 </div>
             </section>
             {{-- GALERI SECTION --}}
-            <section id="galeri" class="w-full pt-20 pb-20 bg-white dark:bg-gray-900">
+            <section id="galeri" class="w-full pt-20 pb-20">
                 <h2 class="text-center text-4xl font-Ovo font-bold text-gray-800 dark:text-white mb-12">GALERI</h2>
                 <div class="overflow-hidden w-full relative max-w-6xl mx-auto marquee-paused">
                     <div class="absolute left-0 top-0 h-full w-20 z-10 pointer-events-none bg-gradient-to-r from-white dark:from-gray-900 to-transparent"></div>
@@ -271,6 +309,20 @@
     </main>
 
     <script>
+        function toggleTask(id) {
+            const content = document.getElementById(`content-${id}`);
+            const icon = document.getElementById(`icon-${id}`);
+            
+            // Toggle Hidden Class
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-180'); // Putar ikon ke atas
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('rotate-180'); // Kembalikan ikon
+            }
+        }
+        
         const dbStudents = @json($students);
 
         const cardsData = dbStudents.map(student => ({

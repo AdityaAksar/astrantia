@@ -8,7 +8,7 @@
                 <p class="text-gray-500 dark:text-gray-400">Cari jadwal kuliah berdasarkan hari dan kelas</p>
             </div>
             <div class="max-w-4xl mx-auto mb-16">
-                <form action="{{ route('schedules') }}" method="GET" class="bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 flex flex-col sm:flex-row gap-4 items-center justify-center">
+                <form action="{{ route('schedules') }}" method="GET" class="bg-white/50 backdrop-blur-xl dark:bg-gray-800 p-4 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 flex flex-col sm:flex-row gap-4 items-center justify-center">
                     <div class="w-full sm:w-1/3">
                         <select name="day" class="w-full rounded-xl border-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:border-indigo-500 focus:ring-indigo-500 py-2.5 px-4 text-sm">
                             <option value="">Semua Hari</option>
@@ -44,7 +44,7 @@
                         @php $hasSchedule = true; @endphp
                         <div class="relative w-full animate-fade-in-up">
                             <div class="flex items-center justify-center mb-8">
-                                <div class="px-8 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm">
+                                <div class="px-8 py-2 rounded-full bg-white/50 backdrop-blur-xl dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm">
                                     <h3 class="text-xl font-bold text-indigo-600 dark:text-indigo-400">{{ $day }}</h3>
                                 </div>
                             </div>

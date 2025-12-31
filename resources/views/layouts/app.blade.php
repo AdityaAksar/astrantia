@@ -9,8 +9,8 @@
 </head>
 <body class="font-Outfit leading-8 bg-white dark:bg-gray-900 text-gray-900 dark:text-white relative">
     {{-- BACKGROUND IMAGE --}}
-    <div class="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] opacity-50 dark:opacity-20">
-        <img src="{{ asset('images/header-bg-color.png') }}" alt="" class="w-full" />
+    <div class="fixed inset-0 -z-10 opacity-50 dark:opacity-20">
+        <img src="{{ asset('images/bg-new.jfif') }}" alt="" class="w-full h-full object-cover" />
     </div>
 
     {{-- NAVBAR CONTAINER --}}

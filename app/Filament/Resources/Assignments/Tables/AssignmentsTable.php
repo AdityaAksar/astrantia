@@ -27,6 +27,11 @@ class AssignmentsTable
                     ->label('Batas Waktu')
                     ->dateTime('d M Y H:i')
                     ->sortable(),
+                Tables\Columns\TextColumn::make('file_path')
+                    ->label('File')
+                    ->badge()
+                    ->color('info')
+                    ->formatStateUsing(fn ($state) => (is_array($state) ? count($state) : 1) . ' File'),
                 Tables\Columns\TextColumn::make('status')
                     ->label('Status')
                     ->badge()

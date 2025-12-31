@@ -53,6 +53,16 @@ class AssignmentResource extends Resource
                     ->required()
                     ->default('pending')
                     ->label('Status'),
+                Forms\Components\FileUpload::make('file_path')
+                    ->required()
+                    ->multiple()
+                    ->label('File Materi')
+                    ->disk('public')
+                    ->directory('informasi tambahan')
+                    ->visibility('public')
+                    ->downloadable()
+                    ->openable()
+                    ->columnSpanFull(),
             ]);
     }
 

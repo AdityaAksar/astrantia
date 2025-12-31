@@ -17,7 +17,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
-use Filament\Forms\Components\TextArea;
+use Filament\Forms\Components\Textarea;
 
 class AssignmentResource extends Resource
 {
@@ -39,7 +39,7 @@ class AssignmentResource extends Resource
                     ->required()
                     ->maxLength(255)
                     ->label('Mata Kuliah'),
-                TextArea::make('description')
+                Textarea::make('description')
                     ->label('Deskripsi')
                     ->columnSpanFull(),
                 Forms\Components\DateTimePicker::make('deadline')

@@ -17,7 +17,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
 use BackedEnum;
 use Filament\Schemas\Components\Section;
-use Filament\Forms\Components\TextArea;
+use Filament\Forms\Components\Textarea;
 
 class StudentResource extends Resource
 {
@@ -67,7 +67,7 @@ class StudentResource extends Resource
                             ->maxLength(500)
                             ->label('Kutipan')
                             ->columnSpanFull(),
-                        TextArea::make('bio')
+                        Textarea::make('bio')
                             ->label('Deskripsi Diri')
                             ->columnSpanFull(),
                         TextInput::make('instagram')

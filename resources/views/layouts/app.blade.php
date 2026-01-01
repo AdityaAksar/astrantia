@@ -77,10 +77,11 @@
     {{-- Footer Section --}}
     <footer class="w-full bg-gradient-to-b from-[#F1EAFF] to-[#FFFFFF] text-gray-800 mt-0">
         <div class="max-w-7xl mx-auto px-6 py-5 flex flex-col items-center">
-            <h1 class="text-2xl sm:text-4xl lg:text-[40px] leading-tight font-Ovo font-bold text-gray-800">
-                Astrantia
-                <span class="sr-only"> Sistem Informasi Universitas Tadulako </span>
-            </h1>
+            <div class="flex items-center space-x-3 mb-6">
+                <img alt="Logo Astrantia Sistem Informasi Universitas Tadulako" class="h-11 rounded-full"
+                    src="{{ asset('images/Astrantia Logo.jpg') }}"/>
+                    Astrantia
+            </div>
             <p class="text-xs text-gray-500 font-medium uppercase tracking-wider mb-4 text-center">
                 Sistem Informasi <br> Universitas Tadulako (Untad)
             </p>

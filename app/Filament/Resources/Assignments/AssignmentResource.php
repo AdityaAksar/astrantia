@@ -54,7 +54,6 @@ class AssignmentResource extends Resource
                     ->default('pending')
                     ->label('Status'),
                 Forms\Components\FileUpload::make('file_path')
-                    ->required()
                     ->multiple()
                     ->label('File Materi')
                     ->disk('public')

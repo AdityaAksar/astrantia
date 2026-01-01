@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title', 'Sistem Informasi Untad Angkatan 2023') 
+@section('description', 'Website resmi kelas Sistem Informasi Universitas Tadulako (Untad) Angkatan 2023. Informasi jadwal kuliah, tugas, dan materi pembelajaran.')
+
 @section('content')
     <style>
         @keyframes marqueeScroll {
@@ -77,9 +80,9 @@
         <div id="about" class="w-full px-[12%] py-10 scroll-mt-20">
             <h2 class="text-center text-5xl font-Ovo">TENTANG</h2>
             <div class="flex w-full flex-col lg:flex-row items-center gap-20 my-20">
-                <div class="max-w-max mx-auto relative"><img src="{{ asset('images/Astrantia.jfif') }}" alt="" class="w-64 sm:w-80 rounded-3xl max-w-none">
+                <div class="max-w-max mx-auto relative"><img src="{{ asset('images/Astrantia.jfif') }}" alt="Astrantia" class="w-64 sm:w-80 rounded-3xl max-w-none">
                     <div class="bg-white w-1/2 aspect-square absolute right-0 bottom-0 rounded-full translate-x-1/4 translate-y-1/3 shadow-[0_4px_55px_rgba(149,0,162,0.15)] flex items-center justify-center">
-                        <img src="{{ asset('images/Astrantia Logo.jpg') }}" alt="" class="w-full rounded-full p-4">
+                        <img src="{{ asset('images/Astrantia Logo.jpg') }}" alt="Logo Astrantia" class="w-full rounded-full p-4">
                     </div>
                 </div>
                 <div class="flex-1">

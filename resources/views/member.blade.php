@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title', 'Daftar Anggota')
+@section('description', 'Profil lengkap anggota kelas Sistem Informasi A Angkatan 2023 Universitas Tadulako.')
+
 @section('content')
     {{-- CONTENT --}}
     <main class="pt-40">

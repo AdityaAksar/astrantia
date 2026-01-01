@@ -1,4 +1,23 @@
 <!DOCTYPE html>
+<html lang="id" class="scroll-smooth"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>@yield('title', 'Beranda') - Astrantia SI A 23</title>
+    <meta name="description" content="@yield('description', 'Website resmi kelas Sistem Informasi A Angkatan 2023 Universitas Tadulako. Informasi jadwal, materi, tugas, dan kegiatan mahasiswa.')">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="@yield('title', 'Astrantia SI A 23') - Universitas Tadulako">
+    <meta property="og:description" content="@yield('description', 'Website resmi kelas Sistem Informasi A Angkatan 2023 Universitas Tadulako.')">
+    <meta property="og:image" content="{{ asset('images/Astrantia Logo.jpg') }}" alt="Logo Astrantia Sistem Informasi Universitas Tadulako">
+
+    <link rel="icon" href="{{ asset('images/Astrantia Logo.jpg') }}" alt="Logo Astrantia Sistem Informasi Universitas Tadulako">
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -17,7 +36,7 @@
     <div class="fixed top-0 left-0 right-0 z-50 flex justify-center py-4 px-4">
         <header class="relative flex items-center justify-between px-6 py-3 md:py-4 shadow-sm max-w-5xl rounded-full mx-auto w-full bg-white/70 backdrop-blur-md border border-white/40">
             <a href="/" class="flex items-center gap-2">
-                <img src="{{ asset('images/Astrantia Logo.jpg') }}" class="h-10 w-10 rounded-full" alt="Astrantia Logo">
+                <img src="{{ asset('images/Astrantia Logo.jpg') }}" class="h-10 w-10 rounded-full" alt="Logo Astrantia Sistem Informasi Universitas Tadulako">
                 <span class="font-bold text-lg text-gray-800">Astrantia</span>
             </a>
             <nav class="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-8 text-gray-900 text-sm font-medium">
@@ -58,11 +77,13 @@
     {{-- Footer Section --}}
     <footer class="w-full bg-gradient-to-b from-[#F1EAFF] to-[#FFFFFF] text-gray-800 mt-0">
         <div class="max-w-7xl mx-auto px-6 py-5 flex flex-col items-center">
-            <div class="flex items-center space-x-3 mb-6">
-                <img alt="" class="h-11 rounded-full"
-                    src="{{ asset('images/Astrantia Logo.jpg') }}"/>
-                    Astrantia
-            </div>
+            <h1 class="text-2xl sm:text-4xl lg:text-[40px] leading-tight font-Ovo font-bold text-gray-800">
+                Astrantia
+                <span class="sr-only"> Sistem Informasi Universitas Tadulako </span>
+            </h1>
+            <p class="text-xs text-gray-500 font-medium uppercase tracking-wider mb-4 text-center">
+                Sistem Informasi <br> Universitas Tadulako (Untad)
+            </p>
             <p class="text-center max-w-xl text-sm font-normal leading-relaxed">
                 wherever we stand; we are one; since we were born.
             </p>

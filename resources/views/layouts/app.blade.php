@@ -17,15 +17,6 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SI A 23 - Universitas Tadulako</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
 <body class="font-Outfit leading-8 bg-white text-gray-900 relative">
     {{-- BACKGROUND IMAGE --}}
     <div class="fixed inset-0 -z-10 opacity-50">

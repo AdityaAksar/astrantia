@@ -19,7 +19,10 @@ class ScheduleController extends Controller
         $schedules = $query->get();
         $groupedSchedules = $schedules->groupBy('day');
         $daysOrder = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
-        $classes = ['A', 'B', 'C', 'D', 'E'];
+        $classes = Schedule::select('class')
+                    ->distinct()
+                    ->orderBy('class', 'asc')
+                    ->pluck('class');
 
         return view('schedule', [
             'groupedSchedules' => $groupedSchedules,

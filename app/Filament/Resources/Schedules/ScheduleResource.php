@@ -49,11 +49,23 @@ class ScheduleResource extends Resource
                 Select::make('class')
                     ->required()
                     ->options([
-                        'A' => 'A',
-                        'B' => 'B',
-                        'C' => 'C',
-                        'D' => 'D',
-                        'E' => 'E',
+                        'A-IOT' => 'A - IOT',
+                        'B-IOT' => 'B - IOT',
+                        // SIC
+                        'A-SIC' => 'A - SIC',
+                        'B-SIC' => 'B - SIC',
+                        // EGOV
+                        'A-EGOV' => 'A - E-Gov',
+                        'B-EGOV' => 'B - E-Gov',
+                        // BD (Big Data
+                        'A-BD' => 'A - Big Data',
+                        'B-BD' => 'B - Big Data',
+                        // Umum
+                        'A-Umum' => 'A - Umum',
+                        'B-Umum' => 'B - Umum',
+                        'C-Umum' => 'C - Umum',
+                        'D-Umum' => 'D - Umum',
+                        'E-Umum' => 'E - Umum',
                     ])
                     ->label('Kelas'),
                 

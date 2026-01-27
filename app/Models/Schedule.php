@@ -3,10 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Schedule extends Model
 {
-    protected $guarded = [];
+    protected $guarded = ['id'];
 
     protected $fillable = [
         'day',
@@ -23,4 +24,9 @@ class Schedule extends Model
         'end_time' => 'string',
         'lecturers' => 'array',
     ];
+
+    public function subscribers(): HasMany
+    {
+        return $this->hasMany(ScheduleSubscriber::class);
+    }
 }

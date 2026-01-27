@@ -68,19 +68,26 @@ class SubscriptionController extends Controller
     public function mySchedule(Request $request)
     {
         $phoneNumber = $request->query('phone_number');
+        $day = $request->query('day');
 
         if (!$phoneNumber) {
-            return response()->json(['status' => 'error', 'message' => 'Nomor HP wajib diisi'], 400);
+            return response()->json(['status' => 'error', 'message' => 'Nomor wajib diisi'], 400);
         }
 
-        $schedules = Schedule::whereHas('subscribers', function($q) use ($phoneNumber) {
+        $query = Schedule::whereHas('subscribers', function($q) use ($phoneNumber) {
             $q->where('phone_number', $phoneNumber);
-        })->orderBy('day')->orderBy('start_time')->get();
+        });
+
+        if ($day) {
+            $query->where('day', $day);
+        }
+
+        $schedules = $query->orderBy('day')->orderBy('start_time')->get();
 
         if ($schedules->isEmpty()) {
             return response()->json([
                 'status' => 'empty',
-                'message' => 'Anda belum mengikuti mata kuliah apapun.',
+                'message' => 'Tidak ada jadwal kuliah untuk hari ini.',
                 'data' => []
             ]);
         }

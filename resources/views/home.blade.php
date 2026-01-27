@@ -28,7 +28,6 @@
             
             <h1 class="text-2xl sm:text-4xl lg:text-[40px] leading-tight font-Ovo font-bold text-gray-800">
                 Astrantia
-                <span class="sr-only"> Sistem Informasi Universitas Tadulako </span>
             </h1>
             <h3 class="flex items-end gap-2 text-xl md:text-2xl font-Ovo font-medium text-gray-900">
                 wherever we stand; we are one; since we were born.

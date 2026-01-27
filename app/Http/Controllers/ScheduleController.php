@@ -27,4 +27,32 @@ class ScheduleController extends Controller
             'classes' => $classes,
         ]);
     }
+
+    public function apiIndex(Request $request)
+    {
+        $query = Schedule::orderBy('start_time', 'asc');
+
+        if ($request->filled('day')) {
+            $query->where('day', $request->day);
+        }
+
+        if ($request->filled('class')) {
+            $query->where('class', $request->class);
+        }
+
+        $schedules = $query->get();
+
+        if ($schedules->isEmpty()) {
+            return response()->json([
+                'status' => 'empty',
+                'message' => 'Tidak ada jadwal ditemukan untuk kriteria ini.',
+                'data' => []
+            ], 200);
+        }
+
+        return response()->json([
+            'status' => 'success',
+            'data' => $schedules
+        ], 200);
+    }
 }

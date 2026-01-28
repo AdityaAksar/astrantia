@@ -108,7 +108,7 @@ class SubscriptionController extends Controller
 
         $courses = Schedule::whereHas('subscribers', function($q) use ($phoneNumber) {
             $q->where('phone_number', $phoneNumber);
-        })->select('id', 'subject', 'day', 'class', 'start_time')->get();
+        })->select('id', 'subject', 'day', 'class', 'start_time', 'end_time', 'room')->get();
 
         return response()->json([
             'status' => 'success',

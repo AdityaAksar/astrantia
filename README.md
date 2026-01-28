@@ -19,7 +19,9 @@
 
 Astrantia adalah aplikasi web yang dirancang khusus untuk **menyederhanakan manajemen informasi akademik**. Dengan antarmuka yang intuitif dan fitur-fitur lengkap, Astrantia membantu mahasiswa dan pengurus kelas dalam mengelola jadwal, tugas, materi pembelajaran, dan dokumentasi kegiatan dengan lebih efisien.
 
-Dibangun dengan teknologi terkini untuk Universitas Tadulako dan institusi pendidikan lainnya.
+🌐 **Kunjungi Website Live:** [**https://astrantia.site**](https://astrantia.site)
+
+Aplikasi ini juga menyediakan **API Support** untuk integrasi dengan layanan pihak ketiga seperti Bot WhatsApp atau Discord untuk notifikasi otomatis.
 
 ---
 
@@ -50,6 +52,14 @@ Panel admin powerful dengan fitur manajemen lengkap:
 | 📖 **Manajemen Materi** | Upload dan kelola file/link materi pembelajaran |
 | 📸 **Manajemen Galeri** | Kelola dokumentasi foto kegiatan |
 | 👤 **Data Mahasiswa** | Kelola profil dan data anggota kelas |
+
+### 🤖 API & Integrasi
+
+Astrantia menyediakan endpoint REST API untuk kebutuhan integrasi bot dan otomatisasi:
+
+- **Jadwal & Tugas:** Mengambil data jadwal dan tugas via API JSON.
+- **Subscription System:** Endpoint untuk mahasiswa berlangganan notifikasi jadwal (`/subscribe`).
+- **Automation Support:** Endpoint khusus untuk bot mengambil data subscriber dan pengingat tugas otomatis (`/automation`).
 
 ---
 
@@ -195,6 +205,8 @@ astrantia/
 │   │   ├── Resources/               # CRUD Resources
 │   │   └── Widgets/                 # Dashboard Widgets
 │   ├── Http/Controllers/            # 🎮 Public Page Controllers
+│   │   ├── Api/                     # 🔌 API Controllers
+│   │   └── ...
 │   ├── Livewire/                    # ⚡ Interactive Components
 │   └── Models/                      # 🗂️ Eloquent Models
 │
